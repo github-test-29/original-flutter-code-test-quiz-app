@@ -1,0 +1,74 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
+  }
+
+}
+
+class MyAppState extends State<MyApp>{
+  var questionIndex = 0;
+
+  void answerQuestions() {
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
+
+    print('questionIndex');
+  }
+
+  void answer2() {
+    print('key 2 chossen');
+  }
+
+  void answer3() {
+    print('key 3 chossen');
+  }
+
+  void answer4() {
+    print('key 4 chossen');
+  }
+
+  @override
+
+  Widget build(BuildContext context) {
+    var questions = [
+      'what\'s your\'s favrotive color',
+      'what\'s your favrotive animal '
+    ];
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('iit jee quiz'),
+        ),
+        body: Column(
+          children: <Widget>[
+            Text(questions[questionIndex]),
+            RaisedButton(
+              child: Text('A'),
+              onPressed: answerQuestions,
+            ),
+            RaisedButton(
+              child: Text('B'),
+              onPressed: answer2,
+            ),
+            RaisedButton(
+              child: Text('C'),
+              onPressed: answer3,
+            ),
+            RaisedButton(
+              child: Text('D'),
+              onPressed: answer4,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
